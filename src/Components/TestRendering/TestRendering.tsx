@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import RenderParent from "./RenderParent";
 import RenderChild from "./RenderChild";
 import RenderContext, {
@@ -6,12 +6,13 @@ import RenderContext, {
   RenderContextDef,
 } from "./RenderContext";
 
-type Props = {};
+type Props = {
+};
 
 const TestRendering = (props: Props) => {
   const mem = useMemo(() => {
     const t: RenderContextData = {
-      valueInt: 100,
+      valueInt: 0,
       valueObj: {},
     };
     return t;

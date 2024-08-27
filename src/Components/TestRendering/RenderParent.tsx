@@ -11,7 +11,7 @@ const RenderParent = (props: Props) => {
   const refCount = useRef(0);
   const [render, setRender] = useState(0);
   const [renderCount, setRenderCount] = useState(0);
-  const context = useContext(RenderContextDef);
+  const context = useRef( useContext(RenderContextDef));
   const refInt = useRef(10);
   const propRef = useRef({ counter: 0 });
   const [countButtonChild2, setCountButtonChild2] = useState(0);
@@ -30,6 +30,10 @@ const RenderParent = (props: Props) => {
 
   const prop = { counter: 0 };
 
+
+  const counter = useRef(0);
+  console.log("Re-render parent");
+
   return (
     <div>
       <h1>Parent: {refCount.current}</h1>
@@ -45,19 +49,25 @@ const RenderParent = (props: Props) => {
       <button
         onClick={() => {
           setRenderCount(renderCount + 1);
-          context.valueInt = context.valueInt + 1;
+          context.current.valueInt = context.current.valueInt + 1;
         }}
       >
-        Increment Parent By Context Changes
+        Set With Parent Change
       </button>
       <button
         onClick={() => {
           memParent.count = memParent.count + 1;
-          context.valueInt = context.valueInt + 1;
-          console.log(`context:${context.valueInt}; mem:${memParent.count}`);
+          context.current.valueInt = context.current.valueInt + 1;
+          // console.log(`context:${context.valueInt}; mem:${memParent.count}`);
         }}
       >
-        Only child update?
+        Set Context
+      </button>
+      <button onClick={() => {
+        // context.valueObj.someField = renderCount + 1;
+        // context.valueObj = { newObj: renderCount + 1 };
+      }}>
+        Change Context ByRefValue
       </button>
       <button
         onClick={() => {
