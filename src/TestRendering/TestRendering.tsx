@@ -8,7 +8,7 @@ import RenderContext, {
 
 type Props = {};
 
-const RenderRoot = (props: Props) => {
+const TestRendering = (props: Props) => {
   const mem = useMemo(() => {
     const t: RenderContextData = {
       valueInt: 100,
@@ -20,10 +20,10 @@ const RenderRoot = (props: Props) => {
     <div>
       <RenderContextDef.Provider value={mem}>
         <RenderParent>
-          <RenderChild title="Indirect child"></RenderChild>
+          {/* <RenderChild title="Indirect child"></RenderChild> */}
         </RenderParent>
       </RenderContextDef.Provider>
     </div>
   );
 };
-export default RenderRoot;
+export default TestRendering;
