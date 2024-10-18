@@ -10,11 +10,13 @@ type Props = {
   prop: any;
   propRef?: any;
   propMem?: any;
+  counter?: number;
 };
 
-const RenderChild =  (props: Props) => {
+const RenderChild = (props: Props) => {
   const [render, setRender] = useState(0);
   const [renderCount, setRenderCount] = useState(0);
+  // const contextRef = useRef(useContext(RenderContextDef));
   const context = useContext(RenderContextDef);
   const mem = useMemo(() => {
     return {
@@ -44,13 +46,54 @@ const RenderChild =  (props: Props) => {
     setRenderCount(renderCount + 1);
     log(props.title, renderCount);
   }, [props.propRef]);
-
-  // useEffect(() => {
+  context.consumer = () => { setRenderCount(renderCount + 1) };
+  // const mem = useMemo(() => {
+  //   return {
+  //     memCounter: 0,
+  //   };
+  // }, []);
+  //   useEffect(() => {
   //     setRenderCount(renderCount + 1);
   //     log(props.title, renderCount);
-  // }, [context.valueInt]);
+  // }, [props.state]);
 
-  log(props.title, renderCount);
+  // useEffect(() => {
+  //   setRenderCount(renderCount + 1);
+  //   // log(props.title, renderCount);
+  // }, [contextRef.current.valueInt]);
+
+  useEffect(() => {
+    setRenderCount(renderCount + 1);
+    // log(props.title, renderCount);
+  }, [context.valueInt]);
+
+  // useEffect(() => {
+  //   setRenderCount(renderCount + 1);
+  //   log(props.title, renderCount);
+  //   // log(props.title, renderCount);
+  // }, [contextRef.current.valueObj]);
+
+  // useEffect(() => {
+  //   setRenderCount(renderCount + 1);
+  //   //props.counter = props.counter ? props.counter + 1 : 0;
+  //   log(props.title, renderCount);
+  //   // log(props.title, renderCount);
+  // }, [props.counter]);
+
+  //   log(props.title, renderCount);
+  console.log("Rendered child");
+
+  // return (
+  //   <div>
+  //     <h1>
+  //       Child [{props.title}]: {renderCount}; mem={mem.memCounter}; context:{context.valueInt}; counter={props.counter};
+  //       <p>
+  //         {context.valueInt}
+  //       </p>
+  //     </h1>
+  //   </div>
+  // );
+
   return (
     <div>
       <h1>

@@ -3,6 +3,7 @@ import React, { createContext, useMemo } from "react";
 export interface RenderContextData {
   valueInt: number;
   valueObj?: any;
+  consumer?: () => void;
 }
 
 export const RenderContextDef = createContext<RenderContextData>(
