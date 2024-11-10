@@ -7,6 +7,8 @@ import TestOverrideProp from "Components/TestOverrideProp/TestOverrideProp";
 import TestAxiosMultipart from "Components/TestAxiosForMultipart/TestAxiosMultipart";
 import TestRenderUpdate from "Components/TestRenderUpdate/TestRenderUpdate";
 import DelayedChange from "Components/DelayedChange/DelayedChange";
+import DomExplore from "Components/DOM/DomExplore";
+import DateOnlyExplore from "Components/DateOnly/DateOnlyExplore";
 
 function App() {
   const range0 = "Items 0-19/65512";
@@ -14,8 +16,8 @@ function App() {
   const range2 = "Items 0-19/*";
 
   const mathPattern = (val: string) => {
-    const pattern =
-      /(^[a-zA-Z][\w]*)\s+(((\d+)\s?-\s?(\d+)?\s?)|\*)\/?\s?(\d+|\*)?/;
+    const pattern2 = /AAA/;
+    const pattern = /(^[a-zA-Z][\w]*)\s+(((\d+)\s?-\s?(\d+)?\s?)|\*)\/?\s?(\d+|\*)?/;
 
     if (pattern.test(val)) {
       const parse = pattern.exec(val);
@@ -56,17 +58,19 @@ function App() {
         <h1>Test APP</h1>
         {/* <TestAxiosMultipart></TestAxiosMultipart> */}
 
-      {
-        false && (
-          <>
+        {
+          false && (
+            <>
               <h1>{str0.toString()}</h1>
-        <h1>{str.toString()}</h1>
-        {/* <TestRendering></TestRendering> */}
-            <TestRenderUpdate></TestRenderUpdate>
-          </>
-        )
-      }
-      <DelayedChange></DelayedChange>
+              <h1>{str.toString()}</h1>
+              {/* <TestRendering></TestRendering> */}
+              <DelayedChange></DelayedChange>
+              <TestRenderUpdate></TestRenderUpdate>
+              <DomExplore></DomExplore>
+            </>
+          )
+        }
+        <DateOnlyExplore></DateOnlyExplore>
       </div>
     </>
   );
