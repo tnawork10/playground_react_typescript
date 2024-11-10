@@ -28,9 +28,16 @@ const DateOnlyExplore = (props: Props) => {
             <h1>DateOnlyExplore</h1>
             {
                 // 20241010
-                <h2>toStringByDefault: {JSON.stringify(dateOnly)}</h2>
+                <h2>JSON.stringify: {JSON.stringify(dateOnly)}</h2>
             }
-
+            {
+                // Sun Nov 10 2024
+                <h2>dateOnly.toString(): {dateOnly.toString()}</h2>
+            }
+            {
+                // Sun Nov 10 2024 17:42:11 GMT+0300 (Moscow Standard Time)
+                <h2>date.toString(): {date.toString()}</h2>
+            }
             <h2>toStringByDefault fromDate: {JSON.stringify(fromDate)}</h2>
             {
                 // "object"
@@ -53,10 +60,21 @@ const DateOnlyExplore = (props: Props) => {
                 <h2>dateOnlyAsAsString instanceof DateOnly: {JSON.stringify(dateOnlyAsAsString instanceof DateOnly)}</h2>
             }
             {
+                // false
                 <h2>dateOnlyAsAsString instanceof DateOnly: {JSON.stringify(objUndef instanceof DateOnly)}</h2>
             }
             {
+                // false
                 <h2>dateOnlyAsAsString instanceof DateOnly: {JSON.stringify(objNull instanceof DateOnly)}</h2>
+            }
+            <h1>Type names</h1>
+            {
+                // "object"
+                <h2>typeof instanceof DateOnly: {JSON.stringify(typeof dateOnly)}</h2>
+            }
+            {
+                // "object"
+                <h2>typeof instanceof DateOnly: {JSON.stringify(typeof date)}</h2>
             }
         </div>
     )
