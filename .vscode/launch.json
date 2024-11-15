@@ -11,6 +11,16 @@
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
             "userDataDir": false,
+        },
+        {
+            "name": "firefox laptop",
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "C:/Program Files/Firefox Developer Edition/firefox.exe",
+            "profile": "dev"
         }
     ]
 }
