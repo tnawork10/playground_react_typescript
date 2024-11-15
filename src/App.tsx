@@ -9,6 +9,7 @@ import TestRenderUpdate from "Components/TestRenderUpdate/TestRenderUpdate";
 import DelayedChange from "Components/DelayedChange/DelayedChange";
 import DomExplore from "Components/DOM/DomExplore";
 import DateOnlyExplore from "Components/DateOnly/DateOnlyExplore";
+import TestExecutionOrder from "Components/TestExecutionOrder/TestExecutionOrder";
 
 function App() {
   const range0 = "Items 0-19/65512";
@@ -67,11 +68,12 @@ function App() {
               <DelayedChange></DelayedChange>
               <TestRenderUpdate></TestRenderUpdate>
               <DomExplore></DomExplore>
+              <DateOnlyExplore></DateOnlyExplore>
             </>
           )
         }
-        <DateOnlyExplore></DateOnlyExplore>
       </div>
+      <TestExecutionOrder></TestExecutionOrder>
     </>
   );
 }
