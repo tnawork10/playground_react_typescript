@@ -9,6 +9,7 @@ import TestRenderUpdate from "Components/TestRenderUpdate/TestRenderUpdate";
 import DelayedChange from "Components/DelayedChange/DelayedChange";
 import DomExplore from "Components/DOM/DomExplore";
 import DateOnlyExplore from "Components/DateOnly/DateOnlyExplore";
+import TestExecutionOrder from "Components/TestExecutionOrder/TestExecutionOrder";
 import ExplorePromise from "Components/Promise/ExplorePromise";
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
         }
         <ExplorePromise></ExplorePromise>
       </div>
+      <TestExecutionOrder></TestExecutionOrder>
     </>
   );
 }
